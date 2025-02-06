@@ -1,0 +1,30 @@
+image: python:3.9
+
+stages:
+  - build
+  - deploy
+
+build_docs:
+  stage: build
+  script:
+    - pip install sphinx myst-parser sphinx_rtd_theme sphinx_design sphinx-autodoc-typehints nbsphinx sphinxcontrib-mermaid sphinx_togglebutton
+    - pip install -r requirements.txt
+    - sphinx-apidoc -o docs/source $PROJECT_NAME
+    - cd docs
+    - make html
+  artifacts:
+    paths:
+      - docs/_build/html
+  only:
+    - master # or any branch you want to deploy docs from
+
+pages:
+  stage: deploy
+  script:
+    - mkdir public
+    - cp -r docs/_build/html/* public/ # Copy built documentation to public folder
+  artifacts:
+    paths:
+      - public
+  only:
+    - main # or your default branch
