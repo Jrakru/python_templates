@@ -1,3 +1,17 @@
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    format_name: myst
+    extension: .md
+    format_version: '0.13'
+    jupytext_version: '1.13.0'
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
 # Quick Start Guide
 
 Get started with {{ cookiecutter.project_name }} in minutes!
@@ -64,5 +78,3 @@ debug: true
 ## Next Steps
 
 - Check out the [API Reference](../api/index) for detailed documentation
-- See [Advanced Topics](../advanced/index) for more complex usage
-- Join our [Community](../community/index)

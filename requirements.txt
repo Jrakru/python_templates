@@ -8,6 +8,4 @@ nbsphinx>=0.9.3
 sphinxcontrib-mermaid>=0.9.2
 sphinx-togglebutton>=0.3.2
 sphinx-autobuild>=2021.3.14
-{% if cookiecutter.use_pydantic == 'y' %}
-pydantic-sphinx-ext>=0.3.0
-{% endif %}
+sphinx-notfound-page>=1.0.0

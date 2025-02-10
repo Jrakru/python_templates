@@ -5,13 +5,12 @@
 
 # -- Project information -----------------------------------------------------
 project = "{{ cookiecutter.project_name }}"
-copyright = "{{ cookiecutter.year }}, {{ cookiecutter.author_name }}"
+copyright = "2025, {{ cookiecutter.author_name }}"
 author = "{{ cookiecutter.author_name }}"
-release = "{{ cookiecutter.version }}"
+release = "{{ cookiecutter.release }}"
 
 # -- General configuration ---------------------------------------------------
 extensions = [
-    "myst_parser",
     "sphinx_design",
     "sphinx.ext.autodoc",
     "sphinx.ext.napoleon",
@@ -21,9 +20,8 @@ extensions = [
     "nbsphinx",  # jupyter notebooks integration
     "sphinxcontrib.mermaid",
     "sphinx_togglebutton",
-{%- if cookiecutter.use_pydantic == 'y' %}
-    "pydantic_sphinx_ext",  # Support for Pydantic models
-{%- endif %}
+    "sphinx-pydantic",  # Support for Pydantic models
+    "myst_nb",
 ]
 
 togglebutton_hint = ""
@@ -43,7 +41,7 @@ exclude_patterns = [
     ".venv",
 ]
 
-source_suffix = [".rst", ".md"]
+source_suffix = [".markdown", ".md"]
 
 # -- Options for HTML output -------------------------------------------------
 html_static_path = ["_static"]
@@ -61,7 +59,7 @@ sys.path.insert(0, os.path.abspath(".."))
 html_theme = "sphinx_rtd_theme"
 
 DOCS_DIR = Path(__file__).parent.absolute()
-PROJECT_DIR = DOCS_DIR.parent / "{{ cookiecutter.project_slug }}"
+PROJECT_DIR = DOCS_DIR.parent / "{{ cookiecutter.project_name }}"
 EXTRA_APIDOC_DIR = DOCS_DIR / "api_doc_override"
 
 # List of modules to document - customize this list for your project
@@ -71,11 +69,11 @@ modules = []
 nbsphinx_execute = "never"
 
 def override_apidoc(_):
-    """Override generated RST files with custom ones."""
+    """Override generated MD files with custom ones."""
     override_dir = EXTRA_APIDOC_DIR
     output_dir = DOCS_DIR
 
-    for override_file in override_dir.glob("*.rst"):
+    for override_file in override_dir.glob("*.md"):
         output_file = output_dir / override_file.name
         shutil.copy2(override_file, output_file)
         print(f"Overriding {output_file} with {override_file}")

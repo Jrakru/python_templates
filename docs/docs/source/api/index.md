@@ -2,33 +2,6 @@
 
 This section provides detailed API documentation for {{ cookiecutter.project_name }}.
 
-## Core API
-
-```{eval-rst}
-.. automodule:: {{ cookiecutter.project_slug }}.core
-   :members:
-   :undoc-members:
-   :show-inheritance:
-```
-
-## Utilities
-
-```{eval-rst}
-.. automodule:: {{ cookiecutter.project_slug }}.utils
-   :members:
-   :undoc-members:
-   :show-inheritance:
-```
-
-## Type Definitions
-
-```{eval-rst}
-.. automodule:: {{ cookiecutter.project_slug }}.types
-   :members:
-   :undoc-members:
-   :show-inheritance:
-```
-
 ## Examples
 
 Here's a quick example of using the core API:
