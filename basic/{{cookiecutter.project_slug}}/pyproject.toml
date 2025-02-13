@@ -23,12 +23,12 @@ classifiers = [
     "Operating System :: OS Independent",
     # Add more classifiers as needed
 ]
-urls = {
-    "Homepage" = "{{ cookiecutter.homepage_url }}"
-    "Repository" = "{{ cookiecutter.repository_url }}"
-    "Documentation" = "{{ cookiecutter.documentation_url }}"
-    "Bug Tracker" = "{{ cookiecutter.bug_tracker_url }}"
-}
+# urls = {
+#    "Homepage" = "{{ cookiecutter.homepage_url }}"
+#    "Repository" = "{{ cookiecutter.repository_url }}"
+#    "Documentation" = "{{ cookiecutter.documentation_url }}"
+#    "Bug Tracker" = "{{ cookiecutter.bug_tracker_url }}"
+# }
 requires-python = ">=3.9, <4.0"
 dependencies = [
     # Add your package dependencies here, e.g.,
